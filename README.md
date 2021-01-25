@@ -1,6 +1,6 @@
 # Spark_DataFrame-And-Spark_SQL
 
-GIỚI THIỆU VỀ "SPARK DATAFRAME" !text in red
+_GIỚI THIỆU VỀ "SPARK DATAFRAME"_
 ![SPARK](https://cdn.educba.com/academy/wp-content/uploads/2019/08/Spark-DataFrame.png)
 
 DataFrame là một API bậc cao hơn RDD được Spark giới thiệu vào năm 2013 (từ Apache Spark 1.3). Tương tự như RDD, dữ liệu trong DataFrame cũng được quản lý theo kiểu phân tán và không thể thay đổi (immutable distributed). Tuy nhiên dữ liệu này được sắp sếp theo các cột, tương tự như trong Relation Database. DataFrame được phát triển để giúp người dùng có thể dễ dàng thực hiện các thao tác xử lý dữ liệu cũng như làm tăng đáng kể hiệu quả sử lý của hệ thống.
