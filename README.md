@@ -19,6 +19,21 @@ DataFrames là bất biến trong tự nhiên. Bằng cách bất biến, ý tô
 **GIỚI THIỆU VỀ "SPARK Properties"**
 ![SPARK](https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/93971819_2568476270051945_7305492388401643520_n.jpg?_nc_cat=109&ccb=2&_nc_sid=32a93c&_nc_ohc=qDQ-As4u5eQAX8xUDhF&_nc_ht=scontent-sin6-1.xx&oh=033e391502eee463a03dc4d5f899a8a1&oe=603B94D4)
 
+Thuộc tính Spark kiểm soát hầu hết các cài đặt ứng dụng và được cấu hình riêng cho từng ứng dụng. Các thuộc tính này có thể được đặt trực tiếp trên SparkConf được chuyển đến của bạn SparkContext. SparkConfcho phép bạn định cấu hình một số thuộc tính chung (ví dụ: URL chính và tên ứng dụng), cũng như các cặp khóa-giá trị tùy ý thông qua set()phương thức.
+Thuộc tính chỉ định kích thước byte phải được cấu hình với đơn vị kích thước.
+Trong khi các số không có đơn vị thường được hiểu là byte, một số ít được hiểu là KiB hoặc MiB. Xem tài liệu về các thuộc tính cấu hình riêng lẻ. Việc chỉ định đơn vị là mong muốn nếu có thể.
+Trong một số trường hợp, bạn có thể muốn tránh mã hóa cứng các cấu hình nhất định trong a SparkConf. Ví dụ: nếu bạn muốn chạy cùng một ứng dụng với các bản gốc khác nhau hoặc số lượng bộ nhớ khác nhau. Spark cho phép bạn chỉ cần tạo một conf trống:
+                                                                 sc = new SparkContext(new SparkConf())
+Công spark-submit cụ và trình bao Spark hỗ trợ hai cách để tải cấu hình động. Đầu tiên là các tùy chọn dòng lệnh, chẳng hạn như --master, như được hiển thị ở trên. spark-submitcó thể chấp nhận bất kỳ thuộc tính Spark nào bằng cách sử dụng --conf cờ, nhưng sử dụng cờ đặc biệt cho các thuộc tính đóng một vai trò trong việc khởi chạy ứng dụng Spark. Đang chạy ./bin/spark-submit --helpsẽ hiển thị toàn bộ danh sách các tùy chọn này .bin/spark-submitcũng sẽ đọc các tùy chọn cấu hình conf/spark-defaults.conf, trong đó mỗi dòng bao gồm một khóa và một giá trị được phân tách bằng khoảng trắng .
+Mọi giá trị được chỉ định dưới dạng cờ hoặc trong tệp thuộc tính sẽ được chuyển đến ứng dụng và được hợp nhất với những giá trị được chỉ định thông qua SparkConf. Các thuộc tính được đặt trực tiếp trên SparkConf được ưu tiên cao nhất, sau đó các cờ được chuyển đến spark-submithoặc spark-shell, sau đó là các tùy chọn trong spark-defaults.conftệp. Một vài khóa cấu hình đã được đổi tên kể từ các phiên bản Spark trước đó; trong những trường hợp như vậy, các tên khóa cũ hơn vẫn được chấp nhận, nhưng được ưu tiên thấp hơn bất kỳ trường hợp nào của khóa mới hơn.
+
+Các thuộc tính của Spark chủ yếu có thể được chia thành hai loại: một là liên quan đến triển khai, như “spark.driver.memory”, “spark.executor.instances”, loại thuộc tính này có thể không bị ảnh hưởng khi thiết lập theo chương trình SparkConftrong thời gian chạy, hoặc hành vi phụ thuộc vào trình quản lý cụm và chế độ triển khai bạn chọn, vì vậy bạn nên đặt thông qua tệp cấu hình hoặc spark-submittùy chọn dòng lệnh; một loại khác chủ yếu liên quan đến kiểm soát thời gian chạy Spark, như “spark.task.maxFailures”, loại thuộc tính này có thể được đặt theo một trong hai cách.
+
+Xem thuộc tính Spark:
+Giao diện người dùng web ứng dụng tại http://<driver>:4040liệt kê các thuộc tính Spark trong tab "Môi trường". Đây là một nơi hữu ích để kiểm tra để đảm bảo rằng các thuộc tính của bạn đã được đặt chính xác. Lưu ý rằng chỉ có giá trị xác định một cách rõ ràng thông qua spark-defaults.conf, SparkConfhoặc dòng lệnh sẽ xuất hiện. Đối với tất cả các thuộc tính cấu hình khác, bạn có thể giả sử giá trị mặc định được sử dụng.
+
+
+
 **GIỚI THIỆU VỀ "SPARK RDD"**
 RDD là bộ sưu tập các bản ghi bất biến và được phân vùng, chỉ có thể được tạo bởi các hoạt động chi tiết thô như bản đồ, bộ lọc, nhóm, v.v. Bằng các thao tác chi tiết thô, điều đó có nghĩa là các hoạt động được áp dụng trên tất cả các phần tử trong bộ dữ liệu. RDD chỉ có thể được tạo bằng cách đọc dữ liệu từ bộ lưu trữ ổn định như HDFS hoặc bằng cách chuyển đổi trên RDD hiện có.
 ![SPARK](https://scontent-sin6-2.xx.fbcdn.net/v/t1.0-9/93049505_2568474116718827_523214101409693696_n.jpg?_nc_cat=103&ccb=2&_nc_sid=32a93c&_nc_ohc=p4Pk_vBHKKsAX9hYsWy&_nc_ht=scontent-sin6-2.xx&oh=a76b7659bdadf5ca69a67e1886e71c7b&oe=603D39D4)
