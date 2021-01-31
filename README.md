@@ -1,4 +1,4 @@
-# Spark_DataFrame-And-Spark_SQL
+# Spark_DataFrame-Spark_Propertices-Spark_RDD
 
 **GIỚI THIỆU VỀ "SPARK DATAFRAME"**
 ![SPARK](https://cdn.educba.com/academy/wp-content/uploads/2019/08/Spark-DataFrame.png)
@@ -17,7 +17,7 @@ DataFrames là bất biến trong tự nhiên. Bằng cách bất biến, ý tô
 
 
 **GIỚI THIỆU VỀ "SPARK Properties"**
-![SPARK](https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/93971819_2568476270051945_7305492388401643520_n.jpg?_nc_cat=109&ccb=2&_nc_sid=32a93c&_nc_ohc=qDQ-As4u5eQAX8xUDhF&_nc_ht=scontent-sin6-1.xx&oh=033e391502eee463a03dc4d5f899a8a1&oe=603B94D4)
+
 
 Thuộc tính Spark kiểm soát hầu hết các cài đặt ứng dụng và được cấu hình riêng cho từng ứng dụng. Các thuộc tính này có thể được đặt trực tiếp trên SparkConf được chuyển đến của bạn SparkContext. SparkConfcho phép bạn định cấu hình một số thuộc tính chung (ví dụ: URL chính và tên ứng dụng), cũng như các cặp khóa-giá trị tùy ý thông qua set()phương thức.
 Thuộc tính chỉ định kích thước byte phải được cấu hình với đơn vị kích thước.
