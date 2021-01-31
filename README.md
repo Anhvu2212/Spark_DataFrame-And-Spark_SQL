@@ -42,3 +42,9 @@ RDD là bộ sưu tập các bản ghi bất biến và được phân vùng, ch
 
 Khi thực thi, việc gọi các transformations, Spark sẽ không ngay lập tức thực thi các tính toán mà sẽ lưu lại thành 1 lineage, tức là tập hợp các biến đổi từ RDD này thành RDD khác qua mỗi transformation. Khi có 1 action được gọi, Spark lúc này mới thực sự thực hiện các biến đổi để trả ra kết quả.
 ![SPARK](https://scontent-sin6-1.xx.fbcdn.net/v/t1.0-9/93971819_2568476270051945_7305492388401643520_n.jpg?_nc_cat=109&ccb=2&_nc_sid=32a93c&_nc_ohc=qDQ-As4u5eQAX8xUDhF&_nc_ht=scontent-sin6-1.xx&oh=033e391502eee463a03dc4d5f899a8a1&oe=603B94D4)
+
+
+**LINK THAM KHẢO**
+https://spark.apache.org/docs/2.3.0/configuration.html#spark-properties
+https://blog.vietnamlab.vn/xu-ly-du-lieu-voi-spark-dataframe/
+https://www.facebook.com/notes/c%E1%BB%99ng-%C4%91%E1%BB%93ng-big-data-vi%E1%BB%87t-nam/apache-spark-fundamentals-ph%E1%BA%A7n-2-spark-core-v%C3%A0-rdd/514714606074061/
